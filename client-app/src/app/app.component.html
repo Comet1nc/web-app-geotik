@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-content>
+    <ul *ngFor="let user of users | async">
+      <h1>ID: {{ user.id }}</h1>
+      <h2>EMAIL: {{ user.email }}</h2>
+    </ul>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <h1>User 1 email:</h1>
+    <div *ngIf="user1 | async as user">
+      <!-- Display user information here -->
+      <p>Email: {{ user.email }}</p>
+      <!-- Other user details... -->
+    </div>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <h1>User 1 email with Error:</h1>
+    <div *ngIf="userWithError | async as user; else loading">
+      <!-- Display user information here -->
+      <p>Email: {{ user.email }}</p>
+      <!-- Other user details... -->
+    </div>
+    <ng-template #loading>Loading...</ng-template>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button color="primary" (click)="addNewUser()">
+      Add new user
+    </button>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button color="primary" (click)="tryResetPassword()">
+      Try reset password
+    </button>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button color="primary" (click)="login()">Login</button>
+  </mat-card-content>
+</mat-card>
