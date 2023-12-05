@@ -1,0 +1,38 @@
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(2px);
+    background-image: url('../assets/AdobeStock_265997832.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  & .logo {
+    position: absolute;
+    height: 100px;
+    top: 60px;
+
+    & img {
+      filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.8));
+      height: 100px;
+      cursor: pointer;
+    }
+  }
+
+  mat-card {
+    margin-top: 225px;
+    min-height: 400px;
+    margin-bottom: auto;
+    width: 800px;
+  }
+}

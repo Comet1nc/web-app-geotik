@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px 95px;
+
+  & .submit {
+    margin-top: 50px;
+  }
+
+  & .passwordMismatch {
+    color: rgb(244, 67, 54);
+  }
+}
+
+.password-info {
+  position: absolute;
+  right: 0;
+  right: 60px;
+  top: 142px;
+}

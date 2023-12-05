@@ -1,0 +1,53 @@
+<form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+  <mat-form-field>
+    <mat-label>Login/E-mail:</mat-label>
+    <input
+      id="email"
+      type="text"
+      formControlName="email"
+      placeholder="Wpisz login..."
+      matInput
+      #email
+    />
+    <button
+      *ngIf="email.value.trim()"
+      (click)="clearLogin()"
+      type="button"
+      mat-icon-button
+      matSuffix
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Hasło:</mat-label>
+    <input
+      id="password"
+      type="text"
+      formControlName="password"
+      placeholder="Wpisz hasło..."
+      matInput
+      #password
+    />
+    <button
+      *ngIf="password.value.trim()"
+      type="button"
+      mat-icon-button
+      matSuffix
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-hint align="end">
+      <a routerLink="/reset-password">zresetuj hasło</a>
+    </mat-hint>
+  </mat-form-field>
+  <button
+    class="submit"
+    type="submit"
+    color="primary"
+    [disabled]="!loginForm.valid"
+    mat-raised-button
+  >
+    LOGIN
+  </button>
+</form>

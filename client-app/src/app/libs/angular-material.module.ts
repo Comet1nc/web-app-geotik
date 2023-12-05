@@ -11,6 +11,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -26,6 +29,9 @@ import { MatSliderModule } from '@angular/material/slider';
     MatTooltipModule,
     MatSnackBarModule,
     MatSliderModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     MatSidenavModule,
@@ -40,6 +46,9 @@ import { MatSliderModule } from '@angular/material/slider';
     MatTooltipModule,
     MatSnackBarModule,
     MatSliderModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class AngularMaterialModule {}
