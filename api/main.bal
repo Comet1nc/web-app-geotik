@@ -5,8 +5,6 @@ listener http:Listener httpListener = new (8080);
 @http:ServiceConfig {
     cors: {
         allowOrigins: ["http://localhost:4200"],
-        // allowOrigins: ["*"],
-        // allowHeaders: ["*"],
         allowCredentials: false,
         maxAge: 84900
     }
@@ -76,6 +74,12 @@ service / on httpListener {
     }
 }
 
+final table<User> key(id) usersTable = table [
+    {id: 1, email: "user1@gmail.com", password: "Password1" },
+    {id: 2, email: "user2@gmail.com", password: "Password2" },
+    {id: 3, email: "user3@gmail.com", password: "Password3" }
+];
+
 function checkUserPassword(string email, string password) returns boolean {
     foreach User user in usersTable {
         if (user.email == email && user.password == password) {
@@ -128,9 +132,3 @@ type CreatedUserDTO record {
     string email;
     string password;
 };
-
-final table<User> key(id) usersTable = table [
-    {id: 1, email: "user1@gmail.com", password: "Password1" },
-    {id: 2, email: "user2@gmail.com", password: "Password2" },
-    {id: 3, email: "user3@gmail.com", password: "Password3" }
-];

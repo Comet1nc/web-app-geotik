@@ -12,10 +12,6 @@ export class AuthService {
   private selectedIndexSource = new BehaviorSubject<number>(0);
   selectedIndex$ = this.selectedIndexSource.asObservable();
 
-  setTabIndex(index: number) {
-    this.selectedIndexSource.next(index);
-  }
-
   constructor(
     private _snackBar: MatSnackBar,
     private http: HttpClient,
@@ -43,12 +39,15 @@ export class AuthService {
           return err;
         })
       )
-      .subscribe((res) =>
+      .subscribe((res) => {
+        this.selectedIndexSource.next(0);
         this._snackBar.open(
           'Rejestracja udana! Ciesz się korzystaniem z naszych usług.',
           'X'
-        )
-      );
+        );
+        this.selectedIndexSource.next(0);
+        this.setTabIndex(0);
+      });
   }
 
   resetPassword(email: string) {
@@ -67,5 +66,9 @@ export class AuthService {
         this._snackBar.open('Sprawdź swoją skrzynkę e-mail.', 'X');
         this.router.navigate(['/auth']);
       });
+  }
+
+  setTabIndex(index: number) {
+    this.selectedIndexSource.next(index);
   }
 }

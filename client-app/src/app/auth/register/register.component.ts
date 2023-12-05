@@ -50,8 +50,6 @@ export class RegisterComponent {
       this.auth.register(userToRegister);
 
       this.registerForm.reset();
-
-      this.auth.setTabIndex(0);
     }
   }
 
