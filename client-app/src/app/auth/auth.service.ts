@@ -40,12 +40,10 @@ export class AuthService {
         })
       )
       .subscribe((res) => {
-        this.selectedIndexSource.next(0);
         this._snackBar.open(
           'Rejestracja udana! Ciesz się korzystaniem z naszych usług.',
           'X'
         );
-        this.selectedIndexSource.next(0);
         this.setTabIndex(0);
       });
   }
